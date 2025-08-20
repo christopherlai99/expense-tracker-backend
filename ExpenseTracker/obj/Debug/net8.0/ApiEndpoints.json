@@ -1,0 +1,50 @@
+[
+  {
+    "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
+    "Method": "AddExpense",
+    "RelativePath": "api/expense-tracker/add-expense",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "record",
+        "Type": "ExpenseTracker.Domain.Entities.Expense",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
+    "Method": "DeleteExpense",
+    "RelativePath": "api/expense-tracker/delete-expense/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
+    "Method": "GetExpense",
+    "RelativePath": "api/expense-tracker/get-expense",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ExpenseTracker.DTOs.Request.GetExpenseRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

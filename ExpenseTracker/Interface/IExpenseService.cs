@@ -7,7 +7,9 @@ namespace ExpenseTracker.Interface
     {
         Task<object> GetAllRecords(GetExpenseRequest request);
 
-        Task<Expense> AddRecord(Expense record);
+        Task<bool> AddRecord(Expense record);
+
+        Task<bool> UpdateRecord(Expense record);
 
         Task<bool> DeleteRecord(int id);
     }

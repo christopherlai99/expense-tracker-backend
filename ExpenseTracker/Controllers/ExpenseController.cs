@@ -38,7 +38,25 @@ namespace ExpenseTracker.Controllers
             try
             {
                 var addedExpense = await _expenseService.AddRecord(record);
-                return Ok(new { expense = addedExpense });
+                return Ok(new { success = addedExpense, message = "Added successfully" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost("update-expense")]
+        public async Task<IActionResult> UpdateExpense([FromBody] Expense record)
+        {
+            try
+            {
+                if(record.Id == 0)
+                {
+                    throw new Exception("Invalid record.");
+                }
+                var updateExpense = await _expenseService.UpdateRecord(record);
+                return Ok(new { success = updateExpense, message = "Updated successfully" });
             }
             catch (Exception ex)
             {

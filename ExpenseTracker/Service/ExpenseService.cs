@@ -72,13 +72,37 @@ namespace ExpenseTracker.Service
             return new { expenses= expenseList, totalRecord  };
         }
 
-        public async Task<Expense> AddRecord(Expense record)
+        public async Task<bool> AddRecord(Expense record)
         {
             try
             {
                 _dbContext.Add(record);
                 await _dbContext.SaveChangesAsync();
-                return record;
+                return true;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> UpdateRecord(Expense record)
+        {
+            try
+            {
+                var expense = await _dbContext.Expenses.FirstOrDefaultAsync(x => x.Id == record.Id);
+                if (expense == null)
+                {
+                    throw new InvalidOperationException("Record Not Found.");
+                }
+                expense.ExpenseDate = record.ExpenseDate;
+                expense.Amount = record.Amount;
+                expense.Category = record.Category;
+                expense.Note = record.Note;
+                expense.Type = record.Type;
+                _dbContext.Update(expense);
+                await _dbContext.SaveChangesAsync();
+                return true;
             }
             catch
             {

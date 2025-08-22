@@ -46,5 +46,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ExpenseTracker.Controllers.ExpenseController",
+    "Method": "UpdateExpense",
+    "RelativePath": "api/expense-tracker/update-expense",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "record",
+        "Type": "ExpenseTracker.Domain.Entities.Expense",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

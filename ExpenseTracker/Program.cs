@@ -24,10 +24,13 @@ builder.Services.AddCors(options =>
     options.AddPolicy("Local",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .SetPreflightMaxAge(TimeSpan.FromHours(1));
+            policy.WithOrigins(
+                "https://chris-expense-tracker.web.app", 
+                "http://localhost:4200"
+                )
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetPreflightMaxAge(TimeSpan.FromHours(1));
         });
 });
 
